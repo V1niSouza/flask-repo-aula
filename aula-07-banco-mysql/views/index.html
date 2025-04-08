@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Acessando a Flash message -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  <!-- Messages é um array que possui "category" e "message" -->
+  {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">
+    <!-- Aqui irá aparecer a mensagem -->
+    {{ message }}
+    </div>
+  {% endfor %} 
+{% endwith %}
+
+    <h1>Bem-Vindo a Homepage!</h1>
+    <h2>Iniciando estudos com Flask!</h2>
+    <!-- Boa pratica para fazer Link em uma rota no Flask -->
+    <!-- Está se referenciando a função -->
+    <img src="{{url_for('static', filename='images/main.jpg')}}" alt="The Games">
+    <a href="{{url_for('games')}}">Games</a> <br><br>
+    <a href="{{url_for('cadgames')}}">Cadastro de jogos</a>
+
+{% endblock content %}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Games</title>
+  </head>
+  <body>
+    <h1>Bem-Vindo a página de Games</h1>
+    <hr />
+    {# Comentário em jinja 2 #} 
+    {# k é key == chave #}
+    {# v é value == valor#}
+
+    {% for k, v in game.items() %} 
+        {{k}}:{{v}}<br/>
+    {% endfor %}
+    <p>O jogo {{game['Titulo']}} está sendo jogado por:</p>
+    <ol>
+      {% for j in jogadores: %}
+      <li>{{j}}</li>
+      {% endfor %}
+    </ol>
+    <p>O jogo {{game['Titulo']}} tem {{2025 - game['Ano'] }} anos.</p>
+  </body>
+</html>
